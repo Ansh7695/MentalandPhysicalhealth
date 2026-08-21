@@ -33,7 +33,7 @@ export const eventsData = [
     registrationOpen: true,
     organizer: "Neelima Youth Mind-Shield Initiative",
     highlights: [
-      "Keynote by Dr. Ananya Deshmukh & Guest Psychiatrists",
+      "Keynote by Founder & Guest Psychiatrists",
       "Interactive Panel: De-stigmatizing Panic & Exam Anxiety",
       "Launch of Peer Emotional First-Aid Handbook",
       "Live Q&A with 24/7 Helpline Counselors"

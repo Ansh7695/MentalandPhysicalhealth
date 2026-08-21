@@ -1,12 +1,12 @@
 export const teamMembers = [
   {
-    id: "dr-ananya-deshmukh",
-    name: "Dr. Ananya Deshmukh",
+    id: "founder-director",
+    name: "Founder & Executive Director",
     role: "Founder & Chief Executive Director",
     credentials: "MD (Community Medicine), MPH (Harvard)",
-    bio: "With over 18 years in public health outreach across rural India, Dr. Ananya founded Neelima Charitable Trust to break down the artificial barrier between physical disease and mental wellness.",
+    bio: "With over 18 years in public health outreach across rural India, our Founder established Neelima Charitable Trust to break down the artificial barrier between physical disease and mental wellness.",
     category: "Leadership",
-    initials: "AD"
+    initials: "FD"
   },
   {
     id: "vikramaditya-sen",

@@ -38,7 +38,7 @@ export const FoundersNote = () => {
                   THE FOUNDER
                 </h1>
                 <span className="block text-lg sm:text-2xl font-bold text-brand-teal mt-2">
-                  Dr. Ananya Deshmukh, MD (Community Medicine), MPH (Harvard)
+                  Executive Director, MD (Community Medicine), MPH (Harvard)
                 </span>
               </div>
 
@@ -101,7 +101,7 @@ export const FoundersNote = () => {
               Our 4-Step Clinical Triage Protocol
             </h2>
             <p className="text-xs sm:text-sm text-warm-muted mt-2">
-              How Dr. Deshmukh's methodology transforms beneficiary health from initial outreach to sustained recovery.
+              How our clinical methodology transforms beneficiary health from initial outreach to sustained recovery.
             </p>
           </div>
 
@@ -197,7 +197,7 @@ export const FoundersNote = () => {
                   "Healthcare is incomplete when we treat physical illness but ignore the silent agony of mental distress. Neelima Charitable Trust exists to give dignity to both."
                 </p>
                 <span className="block text-xs font-bold text-brand-teal uppercase tracking-widest">
-                  — Dr. Ananya Deshmukh, Founder's Vision Statement
+                  — Founder's Vision Statement
                 </span>
               </div>
             </div>

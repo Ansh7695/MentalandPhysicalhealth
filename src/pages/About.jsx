@@ -75,8 +75,7 @@ export const About = () => {
                   badge="Founder & Director"
                   className="mb-4"
                 />
-                <h4 className="font-extrabold text-xl text-warm-charcoal">Dr. Ananya Deshmukh</h4>
-                <p className="text-xs text-brand-teal font-semibold">Founder & Executive Director</p>
+                <h4 className="font-extrabold text-xl text-warm-charcoal">Founder & Executive Director</h4>
                 <p className="text-[11px] text-warm-muted mt-1">MD (Community Medicine), MPH (Harvard)</p>
               </div>
 

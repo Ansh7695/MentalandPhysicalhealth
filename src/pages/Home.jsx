@@ -3,7 +3,6 @@ import { Hero } from '../components/sections/Hero';
 import { ImpactSnapshot } from '../components/sections/ImpactSnapshot';
 import { ProgramsPreview } from '../components/sections/ProgramsPreview';
 import { HowWeWork } from '../components/sections/HowWeWork';
-import { FeaturedCampaign } from '../components/sections/FeaturedCampaign';
 import { TestimonialsCarousel } from '../components/sections/TestimonialsCarousel';
 import { BlogPreview } from '../components/sections/BlogPreview';
 import { UpcomingEventsStrip } from '../components/sections/UpcomingEventsStrip';
@@ -19,7 +18,6 @@ export const Home = () => {
       <ImpactSnapshot />
       <ProgramsPreview />
       <HowWeWork />
-      <FeaturedCampaign />
       <TestimonialsCarousel />
       <UpcomingEventsStrip />
       <BlogPreview />

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, PhoneCall, Stethoscope, GraduationCap, Baby, Users, Activity, CheckCircle2 } from 'lucide-react';
 import { Container } from '../ui/Container';
@@ -17,8 +17,47 @@ const iconMap = {
   Activity,
 };
 
+// Triple the programs array for seamless infinite looping
+const infinitePrograms = [...programs, ...programs, ...programs];
+
 export const ProgramsPreview = () => {
   const scrollContainerRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Set initial scroll position to middle set on mount
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const singleSetWidth = container.scrollWidth / 3;
+      container.scrollLeft = singleSetWidth;
+    }
+  }, []);
+
+  // Handle seamless loop reset on scroll
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const singleSetWidth = container.scrollWidth / 3;
+
+    if (container.scrollLeft <= 20) {
+      // Jump forward to middle set
+      container.scrollLeft += singleSetWidth;
+    } else if (container.scrollLeft >= singleSetWidth * 2 - 20) {
+      // Jump back to middle set
+      container.scrollLeft -= singleSetWidth;
+    }
+  };
+
+  // Auto-slide every 3.5 seconds when not hovered
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+      }
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -45,49 +84,39 @@ export const ProgramsPreview = () => {
             className="mb-0 max-w-2xl"
           />
 
-          <div className="mt-6 md:mt-0 flex items-center gap-4 self-start md:self-auto">
-            {/* Slider Arrow Buttons */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={scrollLeft}
-                className="p-3 rounded-xl bg-white border border-warm-border text-warm-charcoal hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-all duration-200 shadow-xs focus:outline-none"
-                aria-label="Previous Program"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={scrollRight}
-                className="p-3 rounded-xl bg-white border border-warm-border text-warm-charcoal hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-all duration-200 shadow-xs focus:outline-none"
-                aria-label="Next Program"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            <Button
-              to="/programs"
-              variant="outline"
-              size="md"
-              icon={ArrowRight}
-              iconPosition="right"
-              className="border-brand-teal/40 text-brand-teal-dark hover:bg-brand-teal hover:text-white shadow-xs"
+          <div className="mt-6 md:mt-0 flex items-center gap-2 self-start md:self-auto">
+            {/* Infinite Slider Arrow Buttons */}
+            <button
+              onClick={scrollLeft}
+              className="p-3 rounded-xl bg-white border border-warm-border text-warm-charcoal hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-all duration-200 shadow-xs focus:outline-none"
+              aria-label="Previous Program"
             >
-              All 6 Programs
-            </Button>
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="p-3 rounded-xl bg-white border border-warm-border text-warm-charcoal hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-all duration-200 shadow-xs focus:outline-none"
+              aria-label="Next Program"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
 
-        {/* Horizontal Slider Track with Hover Zoom & Shadow Highlight */}
+        {/* Infinite Loop Horizontal Slider Track */}
         <div
           ref={scrollContainerRef}
+          onScroll={handleScroll}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory py-4 px-1 -mx-1"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {programs.map((program) => {
+          {infinitePrograms.map((program, idx) => {
             const IconComponent = iconMap[program.icon] || Activity;
             return (
               <div
-                key={program.id}
+                key={`${program.id}-${idx}`}
                 className="group relative flex-shrink-0 w-[300px] sm:w-[350px] md:w-[380px] snap-start bg-white rounded-2xl border border-warm-border p-6 shadow-soft hover:shadow-2xl hover:shadow-brand-teal/20 hover:border-brand-teal/60 hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
                 {/* Subtle Hover Highlight Gradient Backdrop */}
@@ -132,8 +161,8 @@ export const ProgramsPreview = () => {
                   </p>
 
                   <div className="space-y-1.5 mb-4 text-xs text-warm-charcoal">
-                    {program.features.slice(0, 2).map((feat, idx) => (
-                      <div key={idx} className="flex items-center gap-1.5 truncate">
+                    {program.features.slice(0, 2).map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-center gap-1.5 truncate">
                         <CheckCircle2 className="w-3.5 h-3.5 text-brand-teal flex-shrink-0" />
                         <span className="truncate text-warm-muted">{feat}</span>
                       </div>
@@ -158,10 +187,10 @@ export const ProgramsPreview = () => {
           })}
         </div>
 
-        {/* Swipe/Scroll Hint */}
+        {/* Infinite Loop Status & Hint */}
         <div className="mt-4 text-center text-xs font-semibold text-warm-muted flex items-center justify-center gap-2">
           <span className="w-2 h-2 rounded-full bg-brand-teal animate-pulse" />
-          <span>Swipe or click arrows to explore all 6 initiatives</span>
+          <span>Infinite Loop Slider • Swipe or use arrows to scroll endlessly</span>
         </div>
       </Container>
     </section>

@@ -51,7 +51,7 @@ export const fundAllocation = [
 export const donationFaqs = [
   {
     question: "Is my donation eligible for tax deduction under Section 80G?",
-    answer: "Yes! All donations made to Aura Health & Mind Foundation are eligible for 50% tax deduction under Section 80G of the Indian Income Tax Act. Your 80G tax receipt will be emailed instantly upon completion of donation."
+    answer: "Yes! All donations made to Neelima Charitable Trust are eligible for 50% tax deduction under Section 80G of the Indian Income Tax Act. Your 80G tax receipt will be emailed instantly upon completion of donation."
   },
   {
     question: "Can foreign passport holders or overseas residents donate?",
@@ -63,6 +63,6 @@ export const donationFaqs = [
   },
   {
     question: "Can I setup a monthly recurring donation and cancel anytime?",
-    answer: "Absolutely. When choosing 'Monthly Giving', your subscription can be modified or paused anytime by contacting support@aurafoundation.org or clicking the manage subscription link in your receipt email."
+    answer: "Absolutely. When choosing 'Monthly Giving', your subscription can be modified or paused anytime by contacting support@neelimatrust.org or clicking the manage subscription link in your receipt email."
   }
 ];

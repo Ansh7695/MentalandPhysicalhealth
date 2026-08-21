@@ -54,7 +54,7 @@ export const ImagePlaceholder = ({
         {caption}
       </span>
       <span className="relative z-10 text-[10px] text-warm-muted mt-0.5">
-        Aura Foundation Media Library
+        Neelima Charitable Trust Media Library
       </span>
     </div>
   );

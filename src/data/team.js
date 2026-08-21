@@ -4,7 +4,7 @@ export const teamMembers = [
     name: "Dr. Ananya Deshmukh",
     role: "Founder & Chief Executive Director",
     credentials: "MD (Community Medicine), MPH (Harvard)",
-    bio: "With over 18 years in public health outreach across rural India, Dr. Ananya founded Aura Foundation to break down the artificial barrier between physical disease and mental wellness.",
+    bio: "With over 18 years in public health outreach across rural India, Dr. Ananya founded Neelima Charitable Trust to break down the artificial barrier between physical disease and mental wellness.",
     category: "Leadership",
     initials: "AD"
   },

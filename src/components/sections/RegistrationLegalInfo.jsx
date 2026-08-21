@@ -16,7 +16,7 @@ export const RegistrationLegalInfo = () => {
             Registration & Statutory Compliance
           </h2>
           <p className="text-warm-muted text-sm sm:text-base mt-2">
-            Aura Foundation operates with total financial transparency, compliance under the Indian Trust Act, and annual KPMG independent audits.
+            Neelima Charitable Trust operates with total financial transparency, compliance under the Indian Trust Act, and annual KPMG independent audits.
           </p>
         </div>
 

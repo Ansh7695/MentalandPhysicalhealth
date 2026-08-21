@@ -1,107 +1,116 @@
 import React from 'react';
-import { Heart, PhoneCall, ShieldCheck, Activity, Brain } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Heart, ArrowRight, Star, Users, MessageCircleHeart, Play } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Button } from '../ui/Button';
-import { AccentBadge } from '../ui/AccentBadge';
-import { ImagePlaceholder } from '../ui/ImagePlaceholder';
-import { orgInfo } from '../../data/orgInfo';
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-brand-tint/60 via-warm-base to-warm-base pt-12 sm:pt-16 pb-16 sm:pb-24 border-b border-warm-border/50">
-      {/* Soft Blurred Organic Background Blobs (Non-retail, Calm Editorial) */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-brand-teal/8 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-brand-sage/12 blur-3xl pointer-events-none" />
+    <section className="relative min-h-[580px] lg:min-h-[640px] flex flex-col justify-between overflow-hidden text-white bg-slate-900">
+      {/* Full-Bleed Video Background Container with Poster Fallback & Video Placeholder Badge */}
+      <div className="absolute inset-0 z-0">
+        {/* Background Video Element (Autoplay, Muted, Loop, Cover) */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80"
+          className="w-full h-full object-cover filter brightness-[0.7]"
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-doctor-talking-to-a-patient-42834-large.mp4" type="video/mp4" />
+        </video>
 
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Single Clear Hook & Primary Call to Action */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            <AccentBadge variant="teal" className="mb-4 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              Verified Health & Mental Wellness NGO
-            </AccentBadge>
+        {/* Clear Video Placeholder Overlay Badge */}
+        <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[11px] font-semibold text-white/90 flex items-center gap-1.5">
+          <Play className="w-3 h-3 text-brand-teal fill-brand-teal" />
+          <span>Hero video — pending final footage</span>
+        </div>
 
-            {/* Single Emotional Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-warm-charcoal tracking-tight leading-[1.15] mb-6">
-              Healing <span className="text-brand-teal">Bodies</span>, Restoring <span className="text-brand-sage-dark">Minds</span> across Rural & Urban India.
-            </h1>
+        {/* Dark Gradient Overlay for optimal white typography legibility */}
+        <div
+          className="absolute inset-0 pointer-events-none z-10"
+          style={{
+            background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.30) 50%, rgba(0,0,0,0.50) 100%)',
+          }}
+        />
+      </div>
 
-            {/* Plain-Language Donor & Care Description */}
-            <p className="text-lg sm:text-xl text-warm-muted leading-relaxed font-normal mb-8 max-w-2xl">
-              Every day, thousands face physical illness and hidden emotional distress without access to healthcare. Your support powers rural mobile medical clinics and provides free, 24/7 tele-counseling for anyone in need.
-            </p>
+      {/* Hero Content Container */}
+      <Container className="relative z-20 pt-16 sm:pt-24 pb-12 flex-1 flex flex-col justify-center">
+        <div className="max-w-3xl space-y-6">
+          {/* Main Emotional Headline (Max 2 lines, Bold, White) */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] drop-shadow-md">
+            Healing Bodies, Restoring Minds across Rural & Urban India.
+          </h1>
 
-            {/* CTAs: ONE Primary Donate CTA (Coral) + Secondary Help/Volunteer CTA */}
-            <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
-              <Button
-                to="/donate"
-                variant="coral"
-                size="lg"
-                icon={Heart}
-                className="w-full sm:w-auto text-center"
-              >
-                Donate Now — 50% 80G Tax Benefit
-              </Button>
+          {/* Subtext (1-2 lines, lighter weight, directly under headline) */}
+          <p className="text-base sm:text-xl text-white/90 font-normal leading-relaxed max-w-2xl drop-shadow-sm">
+            Powers rural mobile health clinics and provides free, 24/7 tele-counseling for every family facing physical illness or hidden emotional distress.
+          </p>
 
-              <Button
-                to="/contact"
-                variant="outline"
-                size="lg"
-                icon={PhoneCall}
-                className="w-full sm:w-auto text-center border-brand-teal/30 hover:border-brand-teal text-brand-teal-dark"
-              >
-                Need Help? Call Helpline
-              </Button>
-            </div>
+          {/* Two CTA Buttons Side-by-Side: Primary Solid Coral + Secondary Solid White */}
+          <div className="pt-2 flex flex-wrap items-center gap-4">
+            {/* Primary CTA: Solid Coral Accent */}
+            <Button
+              to="/donate"
+              variant="coral"
+              size="lg"
+              icon={Heart}
+              className="w-full sm:w-auto text-center font-bold px-7 py-4 shadow-xl"
+            >
+              Donate Now — 50% 80G Tax Benefit
+            </Button>
 
-            {/* Trust Micro-Badges */}
-            <div className="mt-10 pt-6 border-t border-warm-border/70 flex flex-wrap items-center gap-6 text-xs font-semibold text-warm-muted">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-brand-teal" />
-                <span>12A & 80G Tax Certified</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-emerald-600" />
-                <span>148,500+ Lives Touched</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Brain className="w-4 h-4 text-brand-sage-dark" />
-                <span>24/7 Free Helpline</span>
-              </div>
-            </div>
+            {/* Secondary CTA: Solid White Button */}
+            <Link
+              to="/programs"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white text-warm-charcoal font-bold text-sm hover:bg-warm-base transition-all duration-200 shadow-lg"
+            >
+              <span>View Our Programs</span>
+              <ArrowRight className="w-4 h-4 text-brand-teal" />
+            </Link>
           </div>
 
-          {/* Right Column: Photo-Led Placeholder Visual */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none space-y-4">
-              <ImagePlaceholder
-                caption="Field Mobile Health Camp Photo — pending"
-                aspectRatio="aspect-[4/3]"
-                badge="Field Operations • Maharashtra"
-                iconType="camera"
-                className="shadow-soft"
-              />
-
-              {/* Floating Stat Micro Card */}
-              <div className="bg-white p-4 rounded-2xl shadow-soft border border-warm-border flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-coral-light flex items-center justify-center text-coral-accent font-bold text-sm">
-                    82%
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-warm-charcoal">Direct Impact Ratio</div>
-                    <div className="text-[11px] text-warm-muted">Audited Funds to Healthcare</div>
-                  </div>
-                </div>
-                <span className="text-[11px] font-semibold text-brand-teal bg-brand-tint px-2.5 py-1 rounded-full">
-                  KPMG Audited
-                </span>
-              </div>
-            </div>
-          </div>
+          {/* Small Trust Line Under Buttons */}
+          <p className="text-xs text-white/75 font-medium tracking-wide">
+            Trusted by 148,000+ families, certified doctors, and volunteers across India.
+          </p>
         </div>
       </Container>
+
+      {/* Bottom Trust Badges Row (Sitting directly on the video with minimal treatment) */}
+      <div className="relative z-20 border-t border-white/15 bg-black/40 backdrop-blur-sm py-4">
+        <Container>
+          <div className="flex flex-wrap items-center justify-between gap-6 text-xs sm:text-sm font-semibold text-white/90">
+            {/* Badge 1: Google Reviews Rating */}
+            <div className="flex items-center gap-2">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-current" />
+                ))}
+              </div>
+              <span><strong>4.9 Rating</strong> on Google Reviews • Neelima Charitable Trust</span>
+            </div>
+
+            {/* Badge 2: Key Impact Stat */}
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4 text-brand-teal-light" />
+              <span><strong>500+ Families</strong> Supported Daily</span>
+            </div>
+
+            {/* Badge 3: Community Link */}
+            <Link
+              to="/stories"
+              className="flex items-center gap-1.5 text-brand-teal-light hover:text-white font-bold transition-colors group"
+            >
+              <MessageCircleHeart className="w-4 h-4 text-coral-accent" />
+              <span>Hear from our community</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </Container>
+      </div>
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { Card } from '../components/ui/Card';
@@ -6,14 +6,14 @@ import { Tabs } from '../components/ui/Tabs';
 import { Modal } from '../components/ui/Modal';
 import { ImagePlaceholder } from '../components/ui/ImagePlaceholder';
 import { galleryAlbums, galleryItems } from '../data/gallery';
-import { Image, Maximize2, Calendar, Play, ChevronLeft, ChevronRight, Video, CheckCircle2 } from 'lucide-react';
+import { Image, Maximize2, Play, ChevronLeft, ChevronRight, Video } from 'lucide-react';
 
 const videoGalleryItems = [
   {
     id: "v1",
     title: "Rural Mobile Health Unit in Action: Satara District",
     duration: "4:25 min",
-    category: "Field Operations",
+    category: "Camps",
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     description: "Watch our doctors and counselors navigate monsoon terrain to reach isolated villages."
   },
@@ -21,7 +21,7 @@ const videoGalleryItems = [
     id: "v2",
     title: "24/7 Tele-Counseling Helpline Triage Protocol",
     duration: "6:10 min",
-    category: "Mental Health",
+    category: "Team",
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     description: "Behind the scenes with our certified NIMHANS psychologists handling crisis calls."
   },
@@ -29,7 +29,7 @@ const videoGalleryItems = [
     id: "v3",
     title: "Youth Mind-Shield: Destigmatizing Exam Anxiety in High Schools",
     duration: "3:45 min",
-    category: "School Workshops",
+    category: "Events",
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     description: "Student leaders sharing peer emotional first-aid techniques."
   }
@@ -47,17 +47,29 @@ export const Gallery = () => {
 
   const currentPhoto = selectedPhotoIndex !== null ? filteredPhotos[selectedPhotoIndex] : null;
 
-  const handleNextPhoto = () => {
-    if (selectedPhotoIndex !== null) {
+  const handleNextPhoto = useCallback(() => {
+    if (selectedPhotoIndex !== null && filteredPhotos.length > 0) {
       setSelectedPhotoIndex((prev) => (prev + 1) % filteredPhotos.length);
     }
-  };
+  }, [selectedPhotoIndex, filteredPhotos.length]);
 
-  const handlePrevPhoto = () => {
-    if (selectedPhotoIndex !== null) {
+  const handlePrevPhoto = useCallback(() => {
+    if (selectedPhotoIndex !== null && filteredPhotos.length > 0) {
       setSelectedPhotoIndex((prev) => (prev - 1 + filteredPhotos.length) % filteredPhotos.length);
     }
-  };
+  }, [selectedPhotoIndex, filteredPhotos.length]);
+
+  // Keyboard navigation for Lightbox (ArrowLeft, ArrowRight, Escape)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedPhotoIndex === null) return;
+      if (e.key === 'ArrowRight') handleNextPhoto();
+      if (e.key === 'ArrowLeft') handlePrevPhoto();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedPhotoIndex, handleNextPhoto, handlePrevPhoto]);
 
   return (
     <main className="bg-warm-base py-12">
@@ -95,7 +107,10 @@ export const Gallery = () => {
                 {galleryAlbums.map((album) => (
                   <button
                     key={album.id}
-                    onClick={() => setActiveAlbum(album.id)}
+                    onClick={() => {
+                      setActiveAlbum(album.id);
+                      setSelectedPhotoIndex(null);
+                    }}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                       activeAlbum === album.id
                         ? 'bg-brand-teal text-white shadow-soft'
@@ -108,19 +123,19 @@ export const Gallery = () => {
               </div>
             </div>
 
-            {/* Photos Grid */}
+            {/* Photos Evenly-Gapped Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPhotos.map((item, idx) => (
                 <Card
                   key={item.id}
                   variant="default"
                   padding="none"
-                  className="cursor-pointer group overflow-hidden"
+                  className="cursor-pointer group overflow-hidden hover:border-brand-teal/40 transition-all duration-300 transform hover:-translate-y-1"
                   onClick={() => setSelectedPhotoIndex(idx)}
                 >
                   <ImagePlaceholder
                     caption={item.caption}
-                    aspectRatio="aspect-[4/3]"
+                    aspectRatio={item.aspectRatio || "aspect-[4/3]"}
                     badge={item.category}
                     iconType="camera"
                   />
@@ -131,7 +146,7 @@ export const Gallery = () => {
                       </h4>
                       <span className="text-[10px] text-warm-muted">{item.date}</span>
                     </div>
-                    <Maximize2 className="w-4 h-4 text-warm-muted group-hover:text-brand-teal transition-colors" />
+                    <Maximize2 className="w-4 h-4 text-warm-muted group-hover:text-brand-teal transition-colors flex-shrink-0 ml-2" />
                   </div>
                 </Card>
               ))}
@@ -208,18 +223,20 @@ export const Gallery = () => {
               className="shadow-inner"
             />
 
-            <div className="p-4 bg-warm-base rounded-2xl border border-warm-border flex items-center justify-between">
+            <div className="p-4 bg-warm-base rounded-2xl border border-warm-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <span className="text-xs font-bold text-brand-teal uppercase tracking-wider block">Caption & Details</span>
                 <p className="text-xs text-warm-charcoal mt-0.5">{currentPhoto.caption}</p>
+                <span className="text-[10px] text-warm-muted block mt-1">Photo {selectedPhotoIndex + 1} of {filteredPhotos.length}</span>
               </div>
 
               {/* Prev / Next Navigation */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 self-end sm:self-center">
                 <button
                   onClick={handlePrevPhoto}
                   className="p-2 rounded-xl bg-white border border-warm-border text-warm-charcoal hover:bg-brand-tint hover:text-brand-teal transition-colors"
                   aria-label="Previous photo"
+                  title="Previous (Left Arrow)"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
@@ -227,6 +244,7 @@ export const Gallery = () => {
                   onClick={handleNextPhoto}
                   className="p-2 rounded-xl bg-white border border-warm-border text-warm-charcoal hover:bg-brand-tint hover:text-brand-teal transition-colors"
                   aria-label="Next photo"
+                  title="Next (Right Arrow)"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>

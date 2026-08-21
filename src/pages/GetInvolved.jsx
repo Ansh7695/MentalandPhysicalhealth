@@ -73,7 +73,7 @@ export const GetInvolved = () => {
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl font-extrabold text-warm-charcoal mb-4">Be a Voice of Comfort & Hope</h2>
               <p className="text-warm-muted leading-relaxed">
-                Volunteers are the heart of Aura Foundation. We train empathetic listeners for our 24/7 tele-counseling helpline and deploy volunteer physicians and organizers to rural medical camps.
+                Volunteers are the heart of Neelima Charitable Trust. We train empathetic listeners for our 24/7 tele-counseling helpline and deploy volunteer physicians and organizers to rural medical camps.
               </p>
             </div>
 
@@ -196,7 +196,7 @@ export const GetInvolved = () => {
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl font-extrabold text-warm-charcoal mb-4">Corporate Social Responsibility & Partnerships</h2>
               <p className="text-warm-muted leading-relaxed">
-                Partner with Aura Foundation under MCA Schedule VII CSR guidelines. We offer end-to-end statutory compliance, geo-tagged impact reporting, and employee volunteering.
+                Partner with Neelima Charitable Trust under MCA Schedule VII CSR guidelines. We offer end-to-end statutory compliance, geo-tagged impact reporting, and employee volunteering.
               </p>
             </div>
 

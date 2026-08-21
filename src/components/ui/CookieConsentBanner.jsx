@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Cookie, X, Check, Settings } from 'lucide-react';
+import { Cookie, X, Settings } from 'lucide-react';
 import { Button } from './Button';
 import { Modal } from './Modal';
 
 export const CookieConsentBanner = () => {
   const [visible, setVisible] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [preferencesOpen, setPreferencesOpen] = useState(false);
   const [preferences, setPreferences] = useState({
     essential: true, // Always true
@@ -23,27 +24,44 @@ export const CookieConsentBanner = () => {
     }
   }, []);
 
+  const dismissWithAnimation = (callback) => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setVisible(false);
+      setIsClosing(false);
+      if (callback) callback();
+    }, 400);
+  };
+
   const handleAcceptAll = () => {
-    localStorage.setItem('aura_cookie_consent', JSON.stringify({ essential: true, analytics: true, marketing: true, timestamp: Date.now() }));
-    setVisible(false);
+    dismissWithAnimation(() => {
+      localStorage.setItem('aura_cookie_consent', JSON.stringify({ essential: true, analytics: true, marketing: true, timestamp: Date.now() }));
+    });
   };
 
   const handleRejectNonEssential = () => {
-    localStorage.setItem('aura_cookie_consent', JSON.stringify({ essential: true, analytics: false, marketing: false, timestamp: Date.now() }));
-    setVisible(false);
+    dismissWithAnimation(() => {
+      localStorage.setItem('aura_cookie_consent', JSON.stringify({ essential: true, analytics: false, marketing: false, timestamp: Date.now() }));
+    });
   };
 
   const handleSavePreferences = () => {
     localStorage.setItem('aura_cookie_consent', JSON.stringify({ ...preferences, essential: true, timestamp: Date.now() }));
     setPreferencesOpen(false);
-    setVisible(false);
+    dismissWithAnimation();
   };
 
   if (!visible) return null;
 
   return (
     <>
-      <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-md z-40 animate-in slide-in-from-bottom-5 duration-500">
+      <div
+        className={`fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-md z-40 transition-all duration-400 ease-in-out ${
+          isClosing
+            ? 'opacity-0 translate-y-6 pointer-events-none'
+            : 'opacity-100 translate-y-0 animate-in slide-in-from-bottom-5 duration-500'
+        }`}
+      >
         <div className="bg-white/95 backdrop-blur-md rounded-2xl p-5 border border-warm-border shadow-modal text-warm-charcoal space-y-4">
           <div className="flex items-start justify-between gap-3">
             <div className="flex items-center gap-2.5">
@@ -54,7 +72,7 @@ export const CookieConsentBanner = () => {
             </div>
             <button
               onClick={handleRejectNonEssential}
-              className="text-warm-muted hover:text-warm-charcoal p-1"
+              className="text-warm-muted hover:text-warm-charcoal p-1 rounded-lg hover:bg-warm-base transition-colors"
               aria-label="Dismiss cookie notice"
             >
               <X className="w-4 h-4" />
@@ -101,7 +119,7 @@ export const CookieConsentBanner = () => {
       <Modal isOpen={preferencesOpen} onClose={() => setPreferencesOpen(false)} title="Cookie Preferences">
         <div className="space-y-4 text-xs">
           <p className="text-warm-muted leading-relaxed">
-            Customize which cookies you allow Aura Foundation to store during your visit. Essential cookies are required for site security and donation processing.
+            Customize which cookies you allow Neelima Charitable Trust to store during your visit. Essential cookies are required for site security and donation processing.
           </p>
 
           <div className="space-y-3">

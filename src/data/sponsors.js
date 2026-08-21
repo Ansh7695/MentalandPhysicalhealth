@@ -57,7 +57,7 @@ export const sponsorshipPackages = [
       "Directly impacts 2,500+ high school students",
       "Supply of student mental health workbooks & peer ambassador badges",
       "Impact assessment report with pre- and post-workshop wellness scores",
-      "Social media recognition across Aura Foundation handles"
+      "Social media recognition across Neelima Charitable Trust handles"
     ]
   }
 ];

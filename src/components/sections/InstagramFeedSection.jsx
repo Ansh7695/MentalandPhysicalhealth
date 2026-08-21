@@ -5,7 +5,7 @@ import { orgInfo } from '../../data/orgInfo';
 import { InstagramIcon } from '../ui/SocialIcons';
 
 const instaPosts = [
-  { id: 1, caption: "Mobile diagnostic clinic #3 arriving in Satara village early this morning. #RuralHealthcare #AuraFoundation", likes: 342, comments: 28, tag: "Field Operations" },
+  { id: 1, caption: "Mobile diagnostic clinic #3 arriving in Satara village early this morning. #RuralHealthcare #NeelimaTrust", likes: 342, comments: 28, tag: "Field Operations" },
   { id: 2, caption: "24/7 Tele-helpline training session with our newly joined clinical psychologists. #MentalHealthMatters", likes: 489, comments: 41, tag: "Helpline Triage" },
   { id: 3, caption: "Smiling faces at our free eye screening camp in Palghar district. 120 prescription glasses distributed! 👓", likes: 612, comments: 54, tag: "Beneficiary Smiles" },
   { id: 4, caption: "School mental resilience workshop: teaching grounding techniques to high school students in Pune.", likes: 405, comments: 33, tag: "Youth Mind-Shield" },
@@ -19,7 +19,7 @@ export const InstagramFeedSection = () => {
           <div>
             <div className="flex items-center gap-2 text-rose-500 font-bold text-xs uppercase tracking-wider">
               <InstagramIcon className="w-4 h-4" />
-              <span>@aura_ngo on Instagram</span>
+              <span>@neelima_trust on Instagram</span>
             </div>
             <h2 className="text-2xl font-extrabold text-warm-charcoal mt-1">Ground Updates from the Field</h2>
           </div>

@@ -4,7 +4,7 @@ import clsx from 'clsx';
 export const IconContainer = ({
   icon: Icon,
   size = 'md', // 'sm' | 'md' | 'lg'
-  variant = 'teal', // 'teal' | 'sage' | 'coral' | 'neutral'
+  variant = 'teal', // 'teal' | 'sage' | 'coral' | 'neutral' | 'teal-coral'
   className = '',
 }) => {
   const containerSizes = {
@@ -21,6 +21,7 @@ export const IconContainer = ({
 
   const variants = {
     teal: 'bg-brand-tint text-brand-teal border border-brand-teal/20 group-hover:bg-brand-teal group-hover:text-white group-hover:border-brand-teal',
+    'teal-coral': 'bg-brand-tint text-brand-teal border border-brand-teal/20 group-hover:bg-coral-light group-hover:text-coral-accent group-hover:border-coral-accent/40',
     sage: 'bg-emerald-50 text-emerald-800 border border-emerald-200 group-hover:bg-emerald-700 group-hover:text-white',
     coral: 'bg-coral-light text-coral-accent border border-coral-accent/20 group-hover:bg-coral-accent group-hover:text-white',
     neutral: 'bg-warm-base text-warm-charcoal border border-warm-border group-hover:bg-warm-charcoal group-hover:text-white',

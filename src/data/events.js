@@ -11,7 +11,7 @@ export const eventsData = [
     description: "Free medical consultations, cataract screening, diabetes diagnostic testing, and distribution of prescription spectacles for 12 surrounding villages.",
     capacity: "1,200 Beneficiaries expected",
     registrationOpen: true,
-    organizer: "Aura Rural Health Team & Rotary Club Wai",
+    organizer: "Neelima Rural Health Team & Rotary Club Wai",
     highlights: [
       "Free ECG, Blood Pressure & Random Blood Glucose",
       "Free Cataract Surgery Referrals to District Hospital",
@@ -31,7 +31,7 @@ export const eventsData = [
     description: "World Mental Health Day Special: Bringing together 500 school educators, youth psychologists, and student leaders to redefine mental wellness in academics.",
     capacity: "500 In-Person / Unlimited Online",
     registrationOpen: true,
-    organizer: "Aura Youth Mind-Shield Initiative",
+    organizer: "Neelima Youth Mind-Shield Initiative",
     highlights: [
       "Keynote by Dr. Ananya Deshmukh & Guest Psychiatrists",
       "Interactive Panel: De-stigmatizing Panic & Exam Anxiety",

@@ -17,7 +17,7 @@ export const About = () => {
       <section className="bg-gradient-soft-tint py-12 sm:py-16 border-b border-warm-border/50">
         <Container>
           <SectionHeading
-            badge="About Aura Foundation"
+            badge="About Neelima Charitable Trust"
             title="Our Story, Mission & Dedication to Care"
             subtitle="Founded in 2017 to eradicate healthcare inequality and dismantle mental health stigma across Indian communities."
             align="center"
@@ -25,29 +25,35 @@ export const About = () => {
         </Container>
       </section>
 
-      {/* Mission Vision Values (3-col with IconContainer interaction) */}
+      {/* Mission Vision Values (3-col with tactile 3D soft claymorphism icons) */}
       <section className="py-16 bg-white border-b border-warm-border/50">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card variant="tint" padding="spacious" className="text-center group">
-              <IconContainer icon={HeartPulse} size="lg" variant="teal" className="mx-auto mb-5" />
-              <h3 className="text-2xl font-bold text-warm-charcoal mb-3">Our Mission</h3>
+            <Card variant="tint" padding="spacious" className="text-center group hover:border-brand-teal/40 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="w-16 h-16 rounded-2xl bg-[#F4F9F7] text-brand-teal flex items-center justify-center mx-auto mb-5 shadow-[5px_5px_15px_rgba(75,155,148,0.15),-5px_-5px_15px_rgba(255,255,255,0.9)] border border-brand-teal/20 group-hover:scale-105 group-hover:bg-brand-teal group-hover:text-white transition-all duration-300">
+                <HeartPulse className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-warm-charcoal mb-3 group-hover:text-brand-teal transition-colors">Our Mission</h3>
               <p className="text-warm-muted text-sm leading-relaxed">
                 To deliver high-quality physical medical interventions, rural mobile clinics, and 24/7 free tele-counseling to every underserved individual without financial barrier.
               </p>
             </Card>
 
-            <Card variant="tint" padding="spacious" className="text-center group">
-              <IconContainer icon={Brain} size="lg" variant="sage" className="mx-auto mb-5" />
-              <h3 className="text-2xl font-bold text-warm-charcoal mb-3">Our Vision</h3>
+            <Card variant="tint" padding="spacious" className="text-center group hover:border-brand-teal/40 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="w-16 h-16 rounded-2xl bg-[#F4F9F7] text-brand-sage-dark flex items-center justify-center mx-auto mb-5 shadow-[5px_5px_15px_rgba(123,168,140,0.18),-5px_-5px_15px_rgba(255,255,255,0.9)] border border-brand-sage/30 group-hover:scale-105 group-hover:bg-brand-sage-dark group-hover:text-white transition-all duration-300">
+                <Brain className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-warm-charcoal mb-3 group-hover:text-brand-teal transition-colors">Our Vision</h3>
               <p className="text-warm-muted text-sm leading-relaxed">
                 A nation where mental healthcare carries zero social stigma, physical illness is diagnosed early, and compassionate healthcare is a fundamental human right.
               </p>
             </Card>
 
-            <Card variant="tint" padding="spacious" className="text-center group">
-              <IconContainer icon={Target} size="lg" variant="coral" className="mx-auto mb-5" />
-              <h3 className="text-2xl font-bold text-warm-charcoal mb-3">Our Core Values</h3>
+            <Card variant="tint" padding="spacious" className="text-center group hover:border-brand-teal/40 transition-all duration-300 transform hover:-translate-y-1">
+              <div className="w-16 h-16 rounded-2xl bg-[#FDF1ED] text-coral-accent flex items-center justify-center mx-auto mb-5 shadow-[5px_5px_15px_rgba(232,106,69,0.15),-5px_-5px_15px_rgba(255,255,255,0.9)] border border-coral-accent/20 group-hover:scale-105 group-hover:bg-coral-accent group-hover:text-white transition-all duration-300">
+                <Target className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-warm-charcoal mb-3 group-hover:text-brand-teal transition-colors">Our Core Values</h3>
               <p className="text-warm-muted text-sm leading-relaxed">
                 Compassionate Empathy, Uncompromising Institutional Transparency, Clinical Triage Rigor, and Beneficiary Dignity in every interaction.
               </p>
@@ -56,14 +62,14 @@ export const About = () => {
         </Container>
       </section>
 
-      {/* Founder's Note Section with Photo Placeholder */}
+      {/* Founder's Note Preview Block */}
       <section id="founders-note" className="py-16 sm:py-24 bg-warm-base">
         <Container>
-          <Card variant="default" padding="spacious" className="max-w-4xl mx-auto shadow-lift">
+          <Card variant="default" padding="spacious" className="max-w-4xl mx-auto shadow-lift border border-brand-teal/20">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-4 flex flex-col items-center text-center">
                 <ImagePlaceholder
-                  caption="Dr. Ananya Deshmukh — Founder Photo"
+                  caption="Founder portrait — pending"
                   aspectRatio="aspect-square"
                   iconType="user"
                   badge="Founder & Director"
@@ -78,11 +84,17 @@ export const About = () => {
                 <Quote className="w-8 h-8 text-brand-teal/30" />
                 <h3 className="text-2xl font-bold tracking-tight">"Healthcare is incomplete when we treat the body but ignore the mind."</h3>
                 <p className="text-warm-muted text-sm">
-                  During my years of practicing community medicine in rural districts, I saw mothers struggling with severe anemia alongside unaddressed postpartum depression, and young students paralyzed by academic panic. Physical disease and mental health are deeply linked.
+                  During my years of practicing community medicine in rural districts, I saw mothers struggling with severe anemia alongside unaddressed postpartum depression. Neelima Charitable Trust was created to bridge this divide.
                 </p>
-                <p className="text-warm-muted text-sm">
-                  Aura Foundation was created to bridge this divide. We promise that every rupee entrusted to us by our donors is spent with total accountability to bring physical healing and psychological comfort to those who need it most.
-                </p>
+                <div className="pt-2">
+                  <a
+                    href="/about/founders-note"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-tint text-brand-teal font-bold text-xs hover:bg-brand-teal hover:text-white transition-all duration-200"
+                  >
+                    <span>Read the Full Founder Story</span>
+                    <span className="text-base">➔</span>
+                  </a>
+                </div>
               </div>
             </div>
           </Card>

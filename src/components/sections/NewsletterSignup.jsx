@@ -33,7 +33,7 @@ export const NewsletterSignup = () => {
           {submitted ? (
             <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-800 text-sm font-semibold flex items-center justify-center gap-2 max-w-md mx-auto">
               <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-              <span>Thank you! You are now subscribed to Aura Foundation field reports.</span>
+              <span>Thank you! You are now subscribed to Neelima Charitable Trust field reports.</span>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

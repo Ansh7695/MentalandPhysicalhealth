@@ -29,7 +29,7 @@ export const Footer = () => {
                 <HeartPulse className="w-6 h-6" />
               </div>
               <span className="font-extrabold text-2xl text-white tracking-tight">
-                Aura <span className="text-brand-teal-light">Foundation</span>
+                Neelima <span className="text-brand-teal-light">Charitable Trust</span>
               </span>
             </Link>
 
@@ -53,46 +53,46 @@ export const Footer = () => {
                 href={orgInfo.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-rose-500 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/10 text-warm-border hover:text-white hover:bg-brand-teal hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-xs"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="w-4 h-4" />
+                <InstagramIcon className="w-5 h-5" />
               </a>
               <a
                 href={orgInfo.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-blue-600 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/10 text-warm-border hover:text-white hover:bg-brand-teal hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-xs"
                 aria-label="Facebook"
               >
-                <FacebookIcon className="w-4 h-4" />
+                <FacebookIcon className="w-5 h-5" />
               </a>
               <a
                 href={orgInfo.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-sky-600 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/10 text-warm-border hover:text-white hover:bg-brand-teal hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-xs"
                 aria-label="LinkedIn"
               >
-                <LinkedinIcon className="w-4 h-4" />
+                <LinkedinIcon className="w-5 h-5" />
               </a>
               <a
                 href={orgInfo.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-slate-700 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/10 text-warm-border hover:text-white hover:bg-brand-teal hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-xs"
                 aria-label="Twitter"
               >
-                <TwitterIcon className="w-4 h-4" />
+                <TwitterIcon className="w-5 h-5" />
               </a>
               <a
                 href={orgInfo.socials.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white hover:bg-red-600 transition-colors"
+                className="w-10 h-10 rounded-xl bg-white/10 text-warm-border hover:text-white hover:bg-brand-teal hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-xs"
                 aria-label="YouTube"
               >
-                <YoutubeIcon className="w-4 h-4" />
+                <YoutubeIcon className="w-5 h-5" />
               </a>
             </div>
           </div>

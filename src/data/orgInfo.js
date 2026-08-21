@@ -1,6 +1,6 @@
 export const orgInfo = {
-  name: "Aura Health & Mind Foundation",
-  shortName: "Aura Foundation",
+  name: "Neelima Charitable Trust",
+  shortName: "Neelima Charitable Trust",
   tagline: "Bridging Physical Healthcare & Mental Wellness for Every Soul",
   establishedYear: 2017,
   
@@ -13,8 +13,8 @@ export const orgInfo = {
   },
 
   contact: {
-    email: "support@aurafoundation.org",
-    donationsEmail: "donate@aurafoundation.org",
+    email: "support@neelimatrust.org",
+    donationsEmail: "donate@neelimatrust.org",
     phone: "+91 (022) 4982-1100",
     address: {
       street: "Plot 42, Harmony Wellness Complex, Green Park Road",
@@ -37,11 +37,11 @@ export const orgInfo = {
   },
 
   socials: {
-    instagram: "https://instagram.com/aurafoundation",
-    facebook: "https://facebook.com/aurafoundation",
-    linkedin: "https://linkedin.com/company/aurafoundation",
-    twitter: "https://twitter.com/aura_ngo",
-    youtube: "https://youtube.com/c/aurafoundation"
+    instagram: "https://instagram.com/neelimatrust",
+    facebook: "https://facebook.com/neelimatrust",
+    linkedin: "https://linkedin.com/company/neelimatrust",
+    twitter: "https://twitter.com/neelima_trust",
+    youtube: "https://youtube.com/c/neelimatrust"
   },
 
   impactStats: {

@@ -154,33 +154,58 @@ export const Contact = () => {
             <div className="lg:col-span-5 space-y-6">
               <Card variant="tint" padding="normal" className="space-y-4">
                 <h4 className="font-bold text-lg text-warm-charcoal border-b border-brand-teal/15 pb-3">
-                  Headquarters & Contact Hubs
+                  Direct Contact & Office Hubs
                 </h4>
 
-                <div className="space-y-4 text-xs text-warm-charcoal">
-                  <div className="flex items-start gap-3.5 p-3 rounded-xl bg-white border border-warm-border/60">
+                <div className="space-y-3 text-xs text-warm-charcoal">
+                  {/* 1. Toll-Free Helpline */}
+                  <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-warm-border/60 shadow-xs hover:border-brand-teal/40 transition-colors">
+                    <IconContainer icon={PhoneCall} size="md" variant="coral" />
+                    <div>
+                      <strong className="block font-bold text-sm text-warm-charcoal">24/7 Crisis Helpline:</strong>
+                      <a href={`tel:${orgInfo.helpline.number.replace(/-/g, '')}`} className="text-coral-accent font-extrabold text-sm hover:underline">
+                        {orgInfo.helpline.number}
+                      </a>
+                      <span className="block text-[11px] text-warm-muted mt-0.5">Toll-free, multi-lingual emotional distress triage</span>
+                    </div>
+                  </div>
+
+                  {/* 2. Office Phone */}
+                  <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-warm-border/60 shadow-xs hover:border-brand-teal/40 transition-colors">
+                    <IconContainer icon={PhoneCall} size="md" variant="teal" />
+                    <div>
+                      <strong className="block font-bold text-sm text-warm-charcoal">Administrative Phone:</strong>
+                      <span className="text-warm-charcoal font-semibold">{orgInfo.contact.phone}</span>
+                      <span className="block text-[11px] text-warm-muted mt-0.5">Mon–Sat (9 AM to 6 PM IST)</span>
+                    </div>
+                  </div>
+
+                  {/* 3. Email Contacts */}
+                  <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-warm-border/60 shadow-xs hover:border-brand-teal/40 transition-colors">
+                    <IconContainer icon={Mail} size="md" variant="sage" />
+                    <div>
+                      <strong className="block font-bold text-sm text-warm-charcoal">Email Desks:</strong>
+                      <div className="text-warm-muted">General: <span className="font-semibold text-warm-charcoal">{orgInfo.contact.email}</span></div>
+                      <div className="text-warm-muted">Donations: <span className="font-semibold text-warm-charcoal">{orgInfo.contact.donationsEmail}</span></div>
+                    </div>
+                  </div>
+
+                  {/* 4. Main Office Address */}
+                  <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-warm-border/60 shadow-xs hover:border-brand-teal/40 transition-colors">
                     <IconContainer icon={MapPin} size="md" variant="teal" />
                     <div>
-                      <strong className="block font-bold text-sm text-warm-charcoal">Main Office Address:</strong>
+                      <strong className="block font-bold text-sm text-warm-charcoal">Headquarters Address:</strong>
                       <span className="text-warm-muted">{orgInfo.contact.address.street}, {orgInfo.contact.address.city}, {orgInfo.contact.address.state} - {orgInfo.contact.address.pincode}</span>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3.5 p-3 rounded-xl bg-white border border-warm-border/60">
-                    <IconContainer icon={Mail} size="md" variant="sage" />
-                    <div>
-                      <strong className="block font-bold text-sm text-warm-charcoal">Email Contacts:</strong>
-                      <div className="text-warm-muted">Support: {orgInfo.contact.email}</div>
-                      <div className="text-warm-muted">Donations: {orgInfo.contact.donationsEmail}</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3.5 p-3 rounded-xl bg-white border border-warm-border/60">
+                  {/* 5. Office Hours */}
+                  <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-warm-border/60 shadow-xs hover:border-brand-teal/40 transition-colors">
                     <IconContainer icon={Clock} size="md" variant="neutral" />
                     <div>
                       <strong className="block font-bold text-sm text-warm-charcoal">Administrative Hours:</strong>
                       <span className="text-warm-muted">{orgInfo.contact.officeHours}</span>
-                      <div className="text-emerald-700 font-bold mt-0.5">Helpline operates 24 Hours / 365 Days</div>
+                      <div className="text-emerald-700 font-bold mt-0.5">24/7 Tele-Counseling Helpline Active Always</div>
                     </div>
                   </div>
                 </div>
@@ -192,7 +217,7 @@ export const Contact = () => {
                   <div className="w-12 h-12 rounded-full bg-brand-teal text-white flex items-center justify-center mb-2 shadow-lg animate-bounce">
                     <MapPin className="w-6 h-6" />
                   </div>
-                  <h5 className="font-extrabold text-sm text-warm-charcoal">Aura Foundation HQ</h5>
+                  <h5 className="font-extrabold text-sm text-warm-charcoal">Neelima Charitable Trust HQ</h5>
                   <p className="text-xs text-warm-muted mt-0.5">Harmony Wellness Complex, Green Park Road, Mumbai</p>
                   <span className="mt-3 px-3 py-1 bg-white/90 text-brand-teal font-bold text-[11px] rounded-full border border-warm-border">
                     📍 Interactive Map Location

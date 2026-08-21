@@ -26,7 +26,7 @@ export const MobileDrawer = ({ isOpen, onClose }) => {
           {/* Header inside drawer */}
           <div className="p-5 border-b border-warm-border flex items-center justify-between bg-warm-base/50">
             <span className="font-extrabold text-lg text-warm-charcoal">
-              Aura <span className="text-brand-teal">Foundation</span>
+              Neelima <span className="text-brand-teal">Charitable Trust</span>
             </span>
             <button
               onClick={onClose}
@@ -78,8 +78,8 @@ export const MobileDrawer = ({ isOpen, onClose }) => {
                   <Link to="/about" onClick={onClose} className="py-2 px-3 rounded-lg text-warm-muted font-medium hover:text-brand-teal">
                     Our Story & Timeline
                   </Link>
-                  <Link to="/about#founders-note" onClick={onClose} className="py-2 px-3 rounded-lg text-warm-muted font-medium hover:text-brand-teal">
-                    Founder's Note
+                  <Link to="/about/founders-note" onClick={onClose} className="py-2 px-3 rounded-lg text-brand-teal font-bold hover:bg-brand-tint">
+                    Founder's Note ➔
                   </Link>
                   <Link to="/about#team" onClick={onClose} className="py-2 px-3 rounded-lg text-warm-muted font-medium hover:text-brand-teal">
                     Our Team & Advisors

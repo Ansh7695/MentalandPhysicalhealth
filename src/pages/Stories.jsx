@@ -57,7 +57,7 @@ export const Stories = () => {
                     <h4 className="text-xl font-bold text-warm-charcoal italic">"{story.quote}"</h4>
                     <p className="text-warm-muted text-sm leading-relaxed">{story.fullStory}</p>
                     <div className="pt-4 border-t border-warm-border/60 flex items-center justify-between">
-                      <span className="text-xs text-warm-muted font-medium">Care Sponsored by Aura Donors</span>
+                      <span className="text-xs text-warm-muted font-medium">Care Sponsored by Neelima Donors</span>
                       <Button to="/donate" variant="coral" size="sm" icon={Heart}>
                         Sponsor a Similar Story
                       </Button>

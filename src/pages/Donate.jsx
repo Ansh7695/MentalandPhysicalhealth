@@ -213,7 +213,7 @@ export const Donate = () => {
             <Card variant="tint" padding="normal" className="space-y-3 group">
               <IconContainer icon={FileCheck} size="md" variant="sage" />
               <h4 className="font-bold text-warm-charcoal text-base">Cheque / Demand Draft</h4>
-              <p className="text-xs text-warm-muted">Payable to "Aura Health & Mind Foundation" payable at Mumbai.</p>
+              <p className="text-xs text-warm-muted">Payable to "Neelima Charitable Trust" payable at Mumbai.</p>
               <div className="text-[11px] font-mono text-warm-charcoal bg-white p-2.5 rounded-lg border border-warm-border">
                 Courier to Mumbai HQ Address
               </div>
@@ -224,7 +224,7 @@ export const Donate = () => {
               <h4 className="font-bold text-warm-charcoal text-base">In-Kind Medical Gifts</h4>
               <p className="text-xs text-warm-muted">Donate medical equipment, diagnostic kits, or medicines.</p>
               <div className="text-[11px] font-mono text-warm-charcoal bg-white p-2.5 rounded-lg border border-warm-border">
-                Contact: donate@aurafoundation.org
+                Contact: donate@neelimatrust.org
               </div>
             </Card>
 

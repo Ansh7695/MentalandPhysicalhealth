@@ -8,6 +8,7 @@ import { CookieConsentBanner } from './components/ui/CookieConsentBanner';
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
+import FoundersNote from './pages/FoundersNote';
 import Programs from './pages/Programs';
 import ProgramDetail from './pages/ProgramDetail';
 import GetInvolved from './pages/GetInvolved';
@@ -44,6 +45,7 @@ export function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/about/founders-note" element={<FoundersNote />} />
             <Route path="/programs" element={<Programs />} />
             <Route path="/programs/:slug" element={<ProgramDetail />} />
             <Route path="/get-involved" element={<GetInvolved />} />
